@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 #from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.decorators.csrf import csrf_exempt
 import json
-from user import models
+from user.models import User
 
 # Create your views here.
 '''class HomePageView(APIView):
