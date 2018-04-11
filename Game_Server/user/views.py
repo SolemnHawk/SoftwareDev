@@ -3,7 +3,7 @@ from django.http import HttpResponse
 #from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist
 import json
-#from user import models
+from user import models
 
 # Create your views here.
 '''class HomePageView(APIView):
@@ -20,7 +20,7 @@ def index(request):
 
 
 
-def get(request=None, uname="test", format=None):
+def get(self,request=None, uname="test", format=None):
     try:
         found_user = User.objects.get(name=uname)
     except ObjectDoesNotExist as e:
