@@ -6,8 +6,8 @@ from user import views as uv
 from django.urls import path
 
 urlpatterns = [
-    path('user/', uv.HomePageView().get),
-    path('user/<str:uname>/', uv.HomePageView().get),
+    path('user/', uv.HomePageView().create_or_retrieve),
+    path('user/<str:uname>/', uv.HomePageView().create_or_retrieve),
 ]
 
 '''urlpatterns = [
