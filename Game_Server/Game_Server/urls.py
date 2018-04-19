@@ -11,7 +11,7 @@ urlpatterns = [
     path('user/', uv.HomePageView().get),
     path('user/<str:uname>/', uv.HomePageView().get),
 	path('subscribe/', subv.HomePageView().create_or_retrieve),
-	path('subscribe/<str:uid>/',subv.HomePageView().create_or_retrieve),
+	path('subscribe/<int:uid>/',subv.HomePageView().create_or_retrieve),
 ]
 
 '''urlpatterns = [
