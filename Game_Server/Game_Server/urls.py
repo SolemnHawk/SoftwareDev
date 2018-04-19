@@ -8,8 +8,8 @@ from subscribe import views
 from subscribe import views as subv
 
 urlpatterns = [
-    path('user/', uv.HomePageView().get),
-    path('user/<str:uname>/', uv.HomePageView().get),
+    path('user/', uv.HomePageView().create_or_retrieve),
+    path('user/<str:uname>/', uv.HomePageView().create_or_retrieve),
 	path('subscribe/', subv.HomePageView().create_or_retrieve),
 	path('subscribe/<int:uid>/',subv.HomePageView().create_or_retrieve),
 ]
