@@ -31,6 +31,3 @@ class HomePageView(APIView):
 			u = Subscribe(id = found_id)
 			u.save()
 			return HttpResponse(json.dumps({"status":"Success"}))
-		elif request.method == "PUT":
-			
-			
