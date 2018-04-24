@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'score',
     'django.contrib.staticfiles',
 	'subscribe'
+    'inventory',
 ]
 
 MIDDLEWARE = [
