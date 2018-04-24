@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'user',
     'score',
     'django.contrib.staticfiles',
-	'subscribe'
+	'subscribe',
     'inventory',
 ]
 
