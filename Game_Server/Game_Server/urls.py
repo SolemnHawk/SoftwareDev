@@ -19,7 +19,8 @@ urlpatterns = [
 	path('subscribe/<str:uname>/',subv.HomePageView().create_or_retrieve),
 	path('subscribe/<str:uname>/<int:subl>/',subv.HomePageView().create_or_retrieve),
     path('score/', scorev.HomePageView().create_or_retrieve),
-    path('score/<str:idval>/', scorev.HomePageView().create_or_retrieve),
+    path('score/<str:uname>/', scorev.HomePageView().create_or_retrieve),
+    path('score/<str:uname>/<str:scoreval>/',scorev.HomePageView().create_or_retrieve),
     path('inventory/', inuv.HomePageView().create_or_retrieve),
     path('inventory/<str:uid>/',inuv.HomePageView().create_or_retrieve),
 ]
