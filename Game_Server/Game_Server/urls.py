@@ -13,7 +13,6 @@ from inventory import views as inuv
 from subscribe import views as subv
 
 urlpatterns = [
-<<<<<<< HEAD
     path('user/', uv.HomePageView().create_or_retrieve),
     path('user/<str:uname>/', uv.HomePageView().create_or_retrieve),
 	path('subscribe/', subv.HomePageView().create_or_retrieve),
@@ -21,7 +20,7 @@ urlpatterns = [
 	path('subscribe/<str:uname>/<int:subl>/',subv.HomePageView().create_or_retrieve),
     path('score/', scorev.HomePageView().create_or_retrieve),
     path('score/<str:uname>/', scorev.HomePageView().create_or_retrieve),
-    path('score/<str:uname>/<str:scoreval>/',scorev.HomePageView().create_or_revtrieve),
+    path('score/<str:uname>/<str:scoreval>/',scorev.HomePageView().create_or_retrieve),
     path('inventory/', inuv.HomePageView().create_or_retrieve),
     path('inventory/<str:uid>/',inuv.HomePageView().create_or_retrieve),
 ]

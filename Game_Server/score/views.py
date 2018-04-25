@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist
@@ -9,26 +10,27 @@ import urllib.request
 # Create your views here.
 class HomePageView(APIView):
     @csrf_exempt
-    def create_or_retrieve(self, request=None, uname="test",scoreval=0, format=None):
+    def create_or_retrieve(self, request=None, uname="test",scoreval="0", format=None):
         page=urllib.request.urlopen('http://localhost:8000/user/'+uname)
         json_string=page.read()
-        parsed_kson=json.loads(json_string)
+        parsed_json=json.loads(json_string)
 
         if request.method =="GET":
             try:
+		   
                     found_id = parsed_json['id']
                     user_id=Score.objects.get(id=found_id)
             except ObjectDoesNotExist as e:
                     return HttpResponse(json.dumps({"status":"NoSuchUser"}), status=404)
 
-            data = { "ID": user_id, "Score": found_id.score }
+            data = { "ID": user_id.id, "Score": user_id.score }
             return HttpResponse(json.dumps(data))
 
         elif request.method == "POST":
             try:
-                found_id=parsed_json['id']
-                user_id = Score.objects.get(id=found_id)
-                return HttpResponse(json.dumps({"status":"AlreadyExists"}), status=403)
+                    found_id=parsed_json['id']
+                    user_id = Score.objects.get(id=found_id)
+                    return HttpResponse(json.dumps({"status":"AlreadyExists"}), status=403)
             except ObjectDoesNotExist as e:
                 pass
             u = Score(id=found_id)
