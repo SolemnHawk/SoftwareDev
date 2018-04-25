@@ -13,6 +13,7 @@ from inventory import views as inuv
 from subscribe import views as subv
 
 urlpatterns = [
+<<<<<<< HEAD
     path('user/', uv.HomePageView().create_or_retrieve),
     path('user/<str:uname>/', uv.HomePageView().create_or_retrieve),
 	path('subscribe/', subv.HomePageView().create_or_retrieve),
