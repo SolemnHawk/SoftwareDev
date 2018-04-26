@@ -1,21 +1,26 @@
-"""Game_Server URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+from user import views 
+from score import views
 from django.contrib import admin
 from django.urls import path
+from user import views as uv
+from score import views as scorev
+from user import views
+from inventory import views
+from django.contrib import admin
+from django.urls import path
+from user import views as uv
+from inventory import views as inuv
+from subscribe import views as subv
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('user/', uv.HomePageView().create_or_retrieve),
+    path('user/<str:uname>/', uv.HomePageView().create_or_retrieve),
+	path('subscribe/', subv.HomePageView().create_or_retrieve),
+	path('subscribe/<str:uname>/',subv.HomePageView().create_or_retrieve),
+	path('subscribe/<str:uname>/<int:subl>/',subv.HomePageView().create_or_retrieve),
+    path('score/', scorev.HomePageView().create_or_retrieve),
+    path('score/<str:uname>/', scorev.HomePageView().create_or_retrieve),
+    path('score/<str:uname>/<str:scoreval>/',scorev.HomePageView().create_or_retrieve),
+    path('inventory/', inuv.HomePageView().create_or_retrieve),
+    path('inventory/<str:uid>/',inuv.HomePageView().create_or_retrieve),
 ]
