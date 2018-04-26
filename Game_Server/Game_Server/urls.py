@@ -12,6 +12,7 @@ urlpatterns = [
     path('user/<str:uname>/', uv.HomePageView().get),
     path('inventory/', inuv.HomePageView().create_or_retrieve),
     path('inventory/<str:uid>/',inuv.HomePageView().create_or_retrieve),
+    path('inventory/<str:uid>/<str:invid>',inuv.HomePageView().create_or_retrieve)
 ]
 
 '''urlpatterns = [
