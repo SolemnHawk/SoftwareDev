@@ -22,5 +22,6 @@ urlpatterns = [
     path('score/<str:uname>/', scorev.HomePageView().create_or_retrieve),
     path('score/<str:uname>/<str:scoreval>/',scorev.HomePageView().create_or_retrieve),
     path('inventory/', inuv.HomePageView().create_or_retrieve),
-    path('inventory/<str:uid>/',inuv.HomePageView().create_or_retrieve),
+    path('inventory/<str:uname>/',inuv.HomePageView().create_or_retrieve),
+    path('inventory/<str:uname>/<str:description>/',inuv.HomePageView().create_or_retrieve)
 ]
