@@ -8,8 +8,6 @@ from inventory import views as inuv
 from django.urls import path
 
 urlpatterns = [
--    path('user/', uv.HomePageView().get),
--    path('user/<str:uname>/', uv.HomePageView().get),
 +    path('user/', uv.HomePageView().create_or_retrieve),
 +    path('user/<str:uname>/', uv.HomePageView().create_or_retrieve),
 +	path('subscribe/', subv.HomePageView().create_or_retrieve),
